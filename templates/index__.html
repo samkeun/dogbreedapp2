@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Breed Prediction</title>
+</head>
+<body>
+    <h1>Upload your dog image</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <input type="submit" value="Upload Image">
+    </form>
+    {% if predicted_breed %}
+    <h2>Predicted Breed: {{ predicted_breed }}</h2>
+    <img src="{{ url_for('static', filename='uploaded_image.jpg') }}" alt="Uploaded Image">
+    {% endif %}
+</body>
+</html>
